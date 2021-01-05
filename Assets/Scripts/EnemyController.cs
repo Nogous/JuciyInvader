@@ -76,8 +76,13 @@ public class EnemyController : MonoBehaviour
             if (_enemy.gameObject == enemy)
             {
                 enemy.GetComponent<BoxCollider2D>().enabled = false;
-                StartCoroutine(Tool.FadeImage(true, enemy.GetComponent<SpriteRenderer>()));
+                StartCoroutine(Tool.FadeImage(true, enemy));
             }
         }
+    }
+
+    public void EndDestroy(GameObject enemy)
+    {
+        Destroy(enemy);
     }
 }

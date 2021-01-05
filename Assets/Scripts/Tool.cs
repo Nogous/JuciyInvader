@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class Tool
 {
-    public static IEnumerator FadeImage(bool fadeAway, SpriteRenderer sprite, float fadeSpeed = 1f)
+    public static IEnumerator FadeImage(bool fadeAway, GameObject obj)
     {
+        SpriteRenderer sprite = obj.GetComponent<SpriteRenderer>();
         // fade from opaque to transparent
         if (fadeAway)
         {
             // loop over 1 second backwards
-            for (float i = 1; i >= 0; i -= Time.deltaTime* fadeSpeed)
+            for (float i = 1; i >= 0; i -= Time.deltaTime)
             {
                 // set color with i as alpha
                 sprite.color = new Color(1, 1, 1, i);
@@ -21,12 +22,14 @@ public class Tool
         else
         {
             // loop over 1 second
-            for (float i = 0; i <= 1; i += Time.deltaTime* fadeSpeed)
+            for (float i = 0; i <= 1; i += Time.deltaTime)
             {
                 // set color with i as alpha
                 sprite.color = new Color(1, 1, 1, i);
                 yield return null;
             }
         }
+
+        EnemyController.instance.EndDestroy(obj);
     }
 }
