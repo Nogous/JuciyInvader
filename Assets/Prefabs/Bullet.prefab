@@ -97,7 +97,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   direction: {x: 0, y: 0, z: 0}
   speed: 0.01
-  liveDuration: 2
+  liveDuration: 5
   activate: 0
 --- !u!61 &-2669039425169407742
 BoxCollider2D:
