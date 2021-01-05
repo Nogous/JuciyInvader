@@ -541,7 +541,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -826,11 +826,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64a13cfdd6fc32a4ab818a778282cfcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 0.05
+  movementSpeed: 0.01
   oneEnemyLeftSpeed: 0
-  fireRate: 0.997
-  minXBound: -5
-  maxXBound: 5
+  fireRate: 0.9995
+  minXBound: -7
+  maxXBound: 7
   shot: {fileID: 8347113934313053276, guid: 0af2189b744e177438b93a3e91e52e45, type: 3}
 --- !u!4 &993100531
 Transform:
@@ -1724,7 +1724,7 @@ PrefabInstance:
     - target: {fileID: 6423103431121811908, guid: ae9871e9aa749c944a1807bfb845fdac,
         type: 3}
       propertyPath: azertyControle
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ae9871e9aa749c944a1807bfb845fdac, type: 3}
