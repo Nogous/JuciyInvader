@@ -53,9 +53,9 @@ public class EnemyController : MonoBehaviour
         }
 
         // Pace up the game when there is only one enemy left
-        if(enemyHolder.childCount == 1)
-        {
-            movementSpeed = oneEnemyLeftSpeed;
-        }
+        //if(enemyHolder.childCount == 1)
+        //{
+        //    movementSpeed = oneEnemyLeftSpeed;
+        //}
     }
 }
