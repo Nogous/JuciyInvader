@@ -798,7 +798,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 0.001
   oneEnemyLeftSpeed: 0.02
-  fireRate: 0.9995
+  fireRate: 100
   minXBound: -7
   maxXBound: 7
   shot: {fileID: 8347113934313053276, guid: 0af2189b744e177438b93a3e91e52e45, type: 3}
@@ -1694,7 +1694,7 @@ PrefabInstance:
     - target: {fileID: 6423103431121811908, guid: ae9871e9aa749c944a1807bfb845fdac,
         type: 3}
       propertyPath: enemyFade
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6423103431121811908, guid: ae9871e9aa749c944a1807bfb845fdac,
         type: 3}
