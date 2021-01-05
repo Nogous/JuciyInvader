@@ -30,7 +30,15 @@ public class Bullet : MonoBehaviour
     {
         if(collision.CompareTag("Enemy"))
         {
-            Destroy(collision.gameObject);
+            if (GameManager.instance.enemyFade)
+            {
+                Debug.Log("fade");
+                EnemyController.instance.DestroyEnemy(collision.gameObject);
+            }
+            else
+            {
+                Destroy(collision.gameObject);
+            }
         }
     }
 }

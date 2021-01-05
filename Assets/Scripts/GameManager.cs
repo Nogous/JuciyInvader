@@ -8,6 +8,9 @@ public class GameManager : MonoBehaviour
 
     public bool azertyControle;
 
+    [Header("Juicy Parameter")]
+    public bool enemyFade;
+
     private void Awake()
     {
         if (instance == null)
