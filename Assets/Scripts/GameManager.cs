@@ -22,6 +22,9 @@ public class GameManager : MonoBehaviour
     public bool enemyFade;
     public bool playerInertie;
 
+    [Header("LoadScene")]
+    public string sceneToLoad;
+
     private void Awake()
     {
         if (instance == null)
@@ -46,7 +49,7 @@ public class GameManager : MonoBehaviour
             controlsEnabled = false;
             if(Input.GetKeyDown(KeyCode.R))
             {
-                SceneManager.LoadScene("SimeonScene 1");
+                SceneManager.LoadScene(sceneToLoad);
             }
         }
 
@@ -57,7 +60,7 @@ public class GameManager : MonoBehaviour
             controlsEnabled = false;
             if (Input.GetKeyDown(KeyCode.R))
             {
-                SceneManager.LoadScene("SimeonScene 1");
+                SceneManager.LoadScene(sceneToLoad);
             }
         }
     }
