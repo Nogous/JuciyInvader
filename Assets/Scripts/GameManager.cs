@@ -20,7 +20,11 @@ public class GameManager : MonoBehaviour
 
     [Header("Juicy Parameter")]
     public bool enemyFade;
+    public bool enemyTurnAround;
     public bool playerInertie;
+
+    [Header("LoadScene")]
+    public string sceneToLoad;
 
     private void Awake()
     {
@@ -46,7 +50,7 @@ public class GameManager : MonoBehaviour
             controlsEnabled = false;
             if(Input.GetKeyDown(KeyCode.R))
             {
-                SceneManager.LoadScene("SimeonScene 1");
+                SceneManager.LoadScene(sceneToLoad);
             }
         }
 
@@ -57,7 +61,7 @@ public class GameManager : MonoBehaviour
             controlsEnabled = false;
             if (Input.GetKeyDown(KeyCode.R))
             {
-                SceneManager.LoadScene("SimeonScene 1");
+                SceneManager.LoadScene(sceneToLoad);
             }
         }
     }
