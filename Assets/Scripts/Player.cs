@@ -16,6 +16,15 @@ public class Player : MonoBehaviour
     // Azerty
     public KeyCode azertyLeft = KeyCode.Q;
 
+
+    [Header("Juicy Parameter")]
+    public float cooldawnShoot = 1f;
+    private float cooldawn = 0f;
+
+    public float currentSpeed = 0f;
+    public float maxSpeed = .1f;
+    public float inertieSpeed = 1f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,22 +37,76 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(shootKey))
+        if (!GameManager.instance.controlsEnabled) return;
+
+        if (cooldawn>0)
         {
-            Bullet tmp = Instantiate(bullet);
-            tmp.transform.position = transform.position;
-            tmp.direction = Vector3.up;
-            tmp.activate = true;
+            cooldawn -= Time.deltaTime;
+        }
+        else
+        {
+            if (Input.GetKey(shootKey))
+            {
+                cooldawn = cooldawnShoot;
+                Bullet tmp = Instantiate(bullet);
+                tmp.transform.position = transform.position;
+                tmp.direction = Vector3.up;
+                tmp.activate = true;
+            }
         }
 
-        if (Input.GetKey(moveLeftKey) && !Input.GetKeyDown(moveRightKey))
+        if (GameManager.instance.playerInertie)
         {
-            transform.position += Vector3.left * speed;
+            if (Input.GetKey(moveRightKey) && !Input.GetKeyDown(moveLeftKey))
+            {
+                currentSpeed += Time.deltaTime * inertieSpeed;
+                if (currentSpeed > maxSpeed)
+                {
+                    currentSpeed = maxSpeed;
+                }
+            }
+            else if (Input.GetKey(moveLeftKey) && !Input.GetKeyDown(moveRightKey))
+            {
+                currentSpeed -= Time.deltaTime * inertieSpeed;
+                if (currentSpeed<-maxSpeed)
+                {
+                    currentSpeed = -maxSpeed;
+                }
+            }
+            else
+            {
+                if (currentSpeed > 0)
+                {
+                    currentSpeed -= Time.deltaTime * inertieSpeed;
+                    if (currentSpeed<0)
+                    {
+                        currentSpeed = 0;
+                    }
+                }
+                else if (currentSpeed < 0)
+                {
+                    currentSpeed += Time.deltaTime * inertieSpeed;
+                    if (currentSpeed > 0)
+                    {
+                        currentSpeed = 0;
+                    }
+                }
+            }
+
+            transform.position += Vector3.right * currentSpeed;
+        }
+        else
+        {
+            if (Input.GetKey(moveLeftKey) && !Input.GetKeyDown(moveRightKey))
+            {
+                transform.position += Vector3.left * speed;
+            }
+
+            if (Input.GetKey(moveRightKey) && !Input.GetKeyDown(moveLeftKey))
+            {
+                transform.position += Vector3.right * speed;
+            }
         }
 
-        if (Input.GetKey(moveRightKey) && !Input.GetKeyDown(moveLeftKey))
-        {
-            transform.position += Vector3.right * speed;
-        }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -8,8 +9,21 @@ public class GameManager : MonoBehaviour
 
     public bool azertyControle;
 
+    public bool isPlayerDead = false;
+    public bool AreEnemiesLeft = true;
+
+    public bool controlsEnabled = true;
+
+    public GameObject winText;
+    public GameObject losetext;
+    public GameObject restartText;
+
     [Header("Juicy Parameter")]
     public bool enemyFade;
+    public bool playerInertie;
+
+    [Header("LoadScene")]
+    public string sceneToLoad;
 
     private void Awake()
     {
@@ -28,6 +42,26 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(!AreEnemiesLeft)
+        {
+            winText.SetActive(true);
+            restartText.SetActive(true);
+            controlsEnabled = false;
+            if(Input.GetKeyDown(KeyCode.R))
+            {
+                SceneManager.LoadScene(sceneToLoad);
+            }
+        }
+
+        if(isPlayerDead)
+        {
+            losetext.SetActive(true);
+            restartText.SetActive(true);
+            controlsEnabled = false;
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                SceneManager.LoadScene(sceneToLoad);
+            }
+        }
     }
 }
