@@ -1167,6 +1167,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 0.01
+  inertieTurnAround: 0.003
+  inertieTurnAroundMoveDawn: 0.03
   oneEnemyLeftSpeed: 0.02
   fireRate: 11
   minXBound: -7
@@ -2325,6 +2327,11 @@ PrefabInstance:
         type: 3}
       propertyPath: azertyControle
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6423103431121811908, guid: ae9871e9aa749c944a1807bfb845fdac,
+        type: 3}
+      propertyPath: enemyTurnAround
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ae9871e9aa749c944a1807bfb845fdac, type: 3}

@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Juicy Parameter")]
     public bool enemyFade;
+    public bool enemyTurnAround;
     public bool playerInertie;
 
     [Header("LoadScene")]

@@ -8,6 +8,8 @@ public class EnemyController : MonoBehaviour
 
     [Header("Values")]
     public float movementSpeed;
+    public float inertieTurnAround = 1f;
+    public float inertieTurnAroundMoveDawn = 1f;
     public float oneEnemyLeftSpeed;
     public float fireRate = 0.997f;
 
@@ -18,6 +20,12 @@ public class EnemyController : MonoBehaviour
     [Header("Components")]
     public GameObject shot;
     private Transform enemyHolder;
+
+    // move smooth
+    private bool isMoveRight = true;
+    private float curentSpeed = 0;
+    private bool TurnAround = true;
+    private Vector3 nextEnemyHolderPosition;
 
     private void Awake()
     {
@@ -32,6 +40,9 @@ public class EnemyController : MonoBehaviour
     {
         //InvokeRepeating("MoveEnemy", 0.1f, 0.3f);
         enemyHolder = GetComponent<Transform>();
+
+        if (!GameManager.instance.enemyTurnAround)
+            curentSpeed = movementSpeed;
     }
 
     private void Update()
@@ -44,18 +55,26 @@ public class EnemyController : MonoBehaviour
 
     void MoveEnemy()
     {
+
         // Moves the enemy
-        enemyHolder.position += Vector3.right * movementSpeed;
+        enemyHolder.position += Vector3.right * curentSpeed;
 
         // For every enemies in the container
         foreach (Transform enemy in enemyHolder)
         {
-            // Set Boundaries and reverse the enemy movement
-            if(enemy.position.x < minXBound || enemy.position.x > maxXBound)
+            if (!TurnAround)
             {
-                movementSpeed = -movementSpeed;
-                enemyHolder.position += Vector3.down * 0.5f;
-                return;
+                // Set Boundaries and reverse the enemy movement
+                if ((enemy.position.x < minXBound && !isMoveRight) || (enemy.position.x > maxXBound && isMoveRight))
+                {
+                    nextEnemyHolderPosition = enemyHolder.position + Vector3.down * 0.5f;
+                    TurnAround = true;
+                    return;
+                }
+            }
+            else
+            {
+                SwitchMoveDir();
             }
 
             // Shoot a bullet
@@ -70,9 +89,52 @@ public class EnemyController : MonoBehaviour
         //{
         //    movementSpeed = oneEnemyLeftSpeed;
         //}
-        if(enemyHolder.childCount == 0)
+        if (enemyHolder.childCount == 0)
         {
             GameManager.instance.AreEnemiesLeft = false;
+        }
+    }
+
+    private void SwitchMoveDir()
+    {
+        if (GameManager.instance.enemyTurnAround)
+        {
+            if (isMoveRight)
+            {
+                curentSpeed -= Time.deltaTime * inertieTurnAround;
+
+                if (curentSpeed < -movementSpeed)
+                {
+                    curentSpeed = -movementSpeed;
+                    TurnAround = false;
+                    isMoveRight = false;
+                }
+            }
+            else
+            {
+                curentSpeed += Time.deltaTime * inertieTurnAround;
+                if (curentSpeed > movementSpeed)
+                {
+                    curentSpeed = movementSpeed;
+                    TurnAround = false;
+                    isMoveRight = true;
+                }
+            }
+
+            enemyHolder.position += Vector3.down * Time.deltaTime * inertieTurnAroundMoveDawn;
+            if (enemyHolder.position.y < nextEnemyHolderPosition.y)
+            {
+                Vector3 tmp = enemyHolder.position;
+                tmp.y = nextEnemyHolderPosition.y;
+                enemyHolder.position = tmp;
+            }
+        }
+        else
+        {
+            curentSpeed = -curentSpeed;
+            TurnAround = false;
+            enemyHolder.position += Vector3.down * 0.5f;
+            isMoveRight = !isMoveRight;
         }
     }
 
