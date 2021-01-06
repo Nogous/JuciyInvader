@@ -96,12 +96,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4f06722c9cb1a34a8b61aa06f03ac8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 0}
-  speed: 0.1
+  bullet: {fileID: 1016339435384682925, guid: f722120da5f19104b920b4235128c272, type: 3}
+  speed: 0.01
   shootKey: 32
   moveRightKey: 100
   moveLeftKey: 97
   azertyLeft: 113
+  cooldawnShoot: 1
+  currentSpeed: 0
+  maxSpeed: 0.03
+  inertieSpeed: 0.1
 --- !u!50 &3885839391429725780
 Rigidbody2D:
   serializedVersion: 4
