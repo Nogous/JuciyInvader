@@ -36,6 +36,7 @@ public class EnemyBullet : MonoBehaviour
         {
             Destroy(collision.gameObject);
             Destroy(gameObject);
+            GameManager.instance.isPlayerDead = true;
         }
     }
 }

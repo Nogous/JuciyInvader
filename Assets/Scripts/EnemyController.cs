@@ -36,7 +36,10 @@ public class EnemyController : MonoBehaviour
 
     private void Update()
     {
-        MoveEnemy();
+        if(GameManager.instance.controlsEnabled)
+        {
+            MoveEnemy();
+        }
     }
 
     void MoveEnemy()
@@ -67,6 +70,10 @@ public class EnemyController : MonoBehaviour
         //{
         //    movementSpeed = oneEnemyLeftSpeed;
         //}
+        if(enemyHolder.childCount == 0)
+        {
+            GameManager.instance.AreEnemiesLeft = false;
+        }
     }
 
     public void DestroyEnemy(GameObject enemy)
