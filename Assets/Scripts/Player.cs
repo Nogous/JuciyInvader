@@ -6,6 +6,8 @@ public class Player : MonoBehaviour
 {
     public Bullet bullet;
 
+    public Animator animator;
+
     // Move
     public KeyCode shootKey = KeyCode.Space;
     public KeyCode moveRightKey = KeyCode.D;
@@ -29,6 +31,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        animator = GetComponent<Animator>();
         if (GameManager.instance.azertyControle)
         {
             moveLeftKey = azertyLeft;
@@ -132,6 +135,15 @@ public class Player : MonoBehaviour
                     transform.position = tmp;
                 }
             }
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.CompareTag("Enemy"))
+        {
+            animator.SetBool("Death", true);
+           //Destroy(gameObject, 2f);
         }
     }
 }

@@ -34,7 +34,7 @@ public class EnemyBullet : MonoBehaviour
         // Collision with the player
         if(collision.CompareTag("Player"))
         {
-            Destroy(collision.gameObject);
+            //Destroy(collision.gameObject);
             Destroy(gameObject);
             GameManager.instance.isPlayerDead = true;
         }
