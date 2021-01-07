@@ -134,5 +134,7 @@ public class Player : MonoBehaviour
             }
         }
 
+
+        GameManager.instance.timeDebug = currentSpeed;
     }
 }

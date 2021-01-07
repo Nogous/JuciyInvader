@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Rendering;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -41,12 +42,17 @@ public class GameManager : MonoBehaviour
     [Header("Camera")]
     public GameObject camera;
 
+    public Text debugTime;
+    public float timeDebug = 0f;
+
     private void Awake()
     {
         if (instance == null)
             instance = this;
         else
             Destroy(gameObject);
+
+        Time.timeScale = 1f;
     }
 
     private void Start()
@@ -58,7 +64,10 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!AreEnemiesLeft)
+        //timeDebug += Time.deltaTime;
+        debugTime.text = timeDebug.ToString();
+
+        if (!AreEnemiesLeft)
         {
             winText.SetActive(true);
             restartText.SetActive(true);
