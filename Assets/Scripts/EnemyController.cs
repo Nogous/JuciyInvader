@@ -146,6 +146,30 @@ public class EnemyController : MonoBehaviour
             {
                 enemy.GetComponent<BoxCollider2D>().enabled = false;
                 StartCoroutine(Tool.FadeImage(true, enemy));
+
+                if (GameManager.instance.enemyDeathEffect)
+                {
+                    if (GameManager.instance.deathEffects.Count > 1)
+                    {
+                        Instantiate(GameManager.instance.deathEffects[0]);
+
+                        if (GameManager.instance.deathEffects.Count > 2)
+                        {
+                            if (Random.Range(0, 100) <= GameManager.instance.spawnSecondEffectProbability)
+                                Instantiate(GameManager.instance.deathEffects[Random.Range(1, GameManager.instance.deathEffects.Count)]);
+                        }
+                        else
+                        {
+                            Debug.Log("Pas de second effect de mort dans la liste d'effect pour l'enemie");
+                        }
+                    }
+                    else
+                    {
+                        Debug.Log("Pas d'effect de mort dans la liste d'effect pour l'enemie");
+                    }
+                }
+
+                return;
             }
         }
     }
