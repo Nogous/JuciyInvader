@@ -34,7 +34,6 @@ public class Bullet : MonoBehaviour
         {
             if (GameManager.instance.enemyFade)
             {
-                Debug.Log("fade");
                 EnemyController.instance.DestroyEnemy(collision.gameObject);
             }
             else
