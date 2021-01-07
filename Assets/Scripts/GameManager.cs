@@ -71,8 +71,6 @@ public class GameManager : MonoBehaviour
 
         }
 
-        debugTime.text = timeDebug.ToString();
-
         if (!AreEnemiesLeft)
         {
             winText.SetActive(true);

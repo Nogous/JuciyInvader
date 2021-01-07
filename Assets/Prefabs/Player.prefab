@@ -108,8 +108,8 @@ MonoBehaviour:
   maxXBound: 8
   cooldawnShoot: 1
   currentSpeed: 0
-  maxSpeed: 4
-  inertieSpeed: 3
+  maxSpeed: 2
+  inertieSpeed: 5
 --- !u!50 &3885839391429725780
 Rigidbody2D:
   serializedVersion: 4
