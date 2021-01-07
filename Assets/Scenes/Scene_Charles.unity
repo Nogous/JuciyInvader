@@ -407,6 +407,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 83402411}
   m_PrefabAsset: {fileID: 0}
+--- !u!224 &274878676 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 6907610056973657130, guid: 4c535a9327ed5094485de988a064c410,
+    type: 3}
+  m_PrefabInstance: {fileID: 1678268943}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &281047435 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6903569052802665482, guid: e1b9fccff32736a47a45efeec3cd882d,
@@ -1065,6 +1071,7 @@ MonoBehaviour:
   inertieTurnAroundMoveDawn: 1
   oneEnemyLeftSpeed: 0.02
   fireRate: 0.9995
+  dawnMoveSpeed: 0.5
   minXBound: -7
   maxXBound: 7
   shot: {fileID: 8347113934313053276, guid: 0af2189b744e177438b93a3e91e52e45, type: 3}
@@ -2862,6 +2869,84 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8052aa5c56de0a2498e17de6a25530e2, type: 3}
+--- !u!1 &2060298687
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2060298688}
+  - component: {fileID: 2060298690}
+  - component: {fileID: 2060298689}
+  m_Layer: 5
+  m_Name: Coucou c'est le debug
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &2060298688
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2060298687}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 274878676}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -0.000061035156, y: 0}
+  m_SizeDelta: {x: -0.000061035156, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2060298689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2060298687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 100
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 200
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: New Text
+--- !u!222 &2060298690
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2060298687}
+  m_CullTransparentMesh: 0
 --- !u!4 &2067064057 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6903569052802665482, guid: e1b9fccff32736a47a45efeec3cd882d,
@@ -3131,6 +3216,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6423103431121811908, guid: ae9871e9aa749c944a1807bfb845fdac,
         type: 3}
+      propertyPath: debugTime
+      value: 
+      objectReference: {fileID: 2060298689}
+    - target: {fileID: 6423103431121811908, guid: ae9871e9aa749c944a1807bfb845fdac,
+        type: 3}
       propertyPath: enemyFade
       value: 1
       objectReference: {fileID: 0}
@@ -3152,7 +3242,7 @@ PrefabInstance:
     - target: {fileID: 6423103431121811908, guid: ae9871e9aa749c944a1807bfb845fdac,
         type: 3}
       propertyPath: enemyTurnAround
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ae9871e9aa749c944a1807bfb845fdac, type: 3}
