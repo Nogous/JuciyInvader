@@ -6,8 +6,6 @@ public class Player : MonoBehaviour
 {
     public Bullet bullet;
 
-    public float speed = .1f;
-
     // Move
     public KeyCode shootKey = KeyCode.Space;
     public KeyCode moveRightKey = KeyCode.D;
@@ -16,6 +14,9 @@ public class Player : MonoBehaviour
     // Azerty
     public KeyCode azertyLeft = KeyCode.Q;
 
+    [Header("Bounds")]
+    public float minXBound;
+    public float maxXBound;
 
     [Header("Juicy Parameter")]
     public float cooldawnShoot = 1f;
@@ -68,7 +69,7 @@ public class Player : MonoBehaviour
             else if (Input.GetKey(moveLeftKey) && !Input.GetKeyDown(moveRightKey))
             {
                 currentSpeed -= Time.deltaTime * inertieSpeed;
-                if (currentSpeed<-maxSpeed)
+                if (currentSpeed < -maxSpeed)
                 {
                     currentSpeed = -maxSpeed;
                 }
@@ -78,7 +79,7 @@ public class Player : MonoBehaviour
                 if (currentSpeed > 0)
                 {
                     currentSpeed -= Time.deltaTime * inertieSpeed;
-                    if (currentSpeed<0)
+                    if (currentSpeed < 0)
                     {
                         currentSpeed = 0;
                     }
@@ -94,17 +95,42 @@ public class Player : MonoBehaviour
             }
 
             transform.position += Vector3.right * currentSpeed;
+
+            if (transform.position.x < minXBound)
+            {
+                Vector3 tmp = transform.position;
+                tmp.x = minXBound;
+                transform.position = tmp;
+            }
+            if (transform.position.x > maxXBound)
+            {
+                Vector3 tmp = transform.position;
+                tmp.x = maxXBound;
+                transform.position = tmp;
+            }
         }
         else
         {
             if (Input.GetKey(moveLeftKey) && !Input.GetKeyDown(moveRightKey))
             {
-                transform.position += Vector3.left * speed;
+                transform.position += Vector3.left * maxSpeed;
+                if (transform.position.x < minXBound)
+                {
+                    Vector3 tmp = transform.position;
+                    tmp.x = minXBound;
+                    transform.position = tmp;
+                }
             }
 
             if (Input.GetKey(moveRightKey) && !Input.GetKeyDown(moveLeftKey))
             {
-                transform.position += Vector3.right * speed;
+                transform.position += Vector3.right * maxSpeed;
+                if (transform.position.x > maxXBound)
+                {
+                    Vector3 tmp = transform.position;
+                    tmp.x = maxXBound;
+                    transform.position = tmp;
+                }
             }
         }
 
