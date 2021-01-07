@@ -11,6 +11,8 @@ public class Bullet : MonoBehaviour
 
     public bool activate;
 
+    public GameObject shockWave;
+
     // Update is called once per frame
     void Update()
     {
@@ -39,7 +41,7 @@ public class Bullet : MonoBehaviour
             {
                 Destroy(collision.gameObject);
             }
-
+            Instantiate(shockWave, collision.transform.position, collision.transform.rotation);
             Destroy(gameObject);
         }
     }
