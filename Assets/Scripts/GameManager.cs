@@ -25,6 +25,10 @@ public class GameManager : MonoBehaviour
     public bool playerInertie;
     public bool vignette;
     public bool enemyDeathEffect;
+    public bool BGSound;
+    public bool SFX;
+    private bool _BGSound;
+    private bool _SFX;
 
     [Header("LoadScene")]
     public string sceneToLoad;
@@ -43,6 +47,12 @@ public class GameManager : MonoBehaviour
             instance = this;
         else
             Destroy(gameObject);
+    }
+
+    private void Start()
+    {
+        _BGSound = BGSound;
+        _SFX = SFX;
     }
 
     // Update is called once per frame
@@ -77,6 +87,17 @@ public class GameManager : MonoBehaviour
         else
         {
             camera.GetComponent<Volume>().enabled = false;
+        }
+
+        if (_BGSound != BGSound)
+        {
+            AudioManager.instance.UpdateVolume();
+            _BGSound = BGSound;
+        }
+        if (_SFX != SFX)
+        {
+            AudioManager.instance.UpdateVolume();
+            _SFX = SFX;
         }
     }
 }
