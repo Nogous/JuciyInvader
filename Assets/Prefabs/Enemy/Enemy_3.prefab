@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1226488098788933203}
   - component: {fileID: 4937362542920123929}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: Enemy_3
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 5255952214953729414, guid: e0cb2e7e1579ccb438609ace0bfde456,
+  m_Sprite: {fileID: 3916493034524048907, guid: 7e4d26e02b55e0047b720c927427d06c,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -124,7 +124,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.8, y: 1.1}
+    oldSize: {x: 0.95, y: 0.75}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -142,7 +142,7 @@ Animation:
   m_GameObject: {fileID: 1003402276786709812}
   m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: 29ac85ab8d4ba434087e1a053daa27c9, type: 2}
+  m_Animation: {fileID: 7400000, guid: 2b22b8d25f6250149bd1dd8a1d8bba5c, type: 2}
   m_Animations: []
   m_WrapMode: 0
   m_PlayAutomatically: 1
@@ -158,7 +158,7 @@ Animator:
   m_GameObject: {fileID: 1003402276786709812}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: fa171f06c5c0fa14a92ec80017350f3e, type: 2}
+  m_Controller: {fileID: 9100000, guid: d3c70fcc9f7fdad44b2ebfad66921e22, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
