@@ -34,12 +34,11 @@ public class Bullet : MonoBehaviour
         {
             if (GameManager.instance.enemyFade)
             {
-                Debug.Log("fade");
                 EnemyController.instance.DestroyEnemy(collision.gameObject);
             }
             else
             {
-                Destroy(collision.gameObject);
+                EnemyController.instance.DestroyEnemy(collision.gameObject);
             }
             Instantiate(shockWave, collision.transform.position, collision.transform.rotation);
             Destroy(gameObject);
