@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   direction: {x: 0, y: 0, z: 0}
-  speed: 0.05
+  speed: 3
   liveDuration: 5
   activate: 0
   shockWave: {fileID: 7087857329001496303, guid: fdf9bc886f715cc4682f347b576115cc,

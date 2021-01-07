@@ -18,7 +18,7 @@ public class Bullet : MonoBehaviour
     {
         if (activate)
         {
-            transform.position += direction * speed;
+            transform.position += direction * speed * Time.deltaTime;
         }
 
         liveDuration -= Time.deltaTime;

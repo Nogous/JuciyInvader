@@ -20,7 +20,7 @@ public class EnemyBullet : MonoBehaviour
     void FixedUpdate()
     {
         // Moves the bullet 
-        bulletTransform.position += Vector3.up * -speed;
+        bulletTransform.position += Vector3.up * -speed * Time.deltaTime;
 
         // Destroy the bullet when it is out of bounds
         if(bulletTransform.position.y <= -10)

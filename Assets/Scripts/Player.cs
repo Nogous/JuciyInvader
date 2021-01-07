@@ -94,7 +94,7 @@ public class Player : MonoBehaviour
                 }
             }
 
-            transform.position += Vector3.right * currentSpeed;
+            transform.position += Vector3.right * currentSpeed * Time.deltaTime;
 
             if (transform.position.x < minXBound)
             {
@@ -113,7 +113,7 @@ public class Player : MonoBehaviour
         {
             if (Input.GetKey(moveLeftKey) && !Input.GetKeyDown(moveRightKey))
             {
-                transform.position += Vector3.left * maxSpeed;
+                transform.position += Vector3.left * maxSpeed* Time.deltaTime;
                 if (transform.position.x < minXBound)
                 {
                     Vector3 tmp = transform.position;
@@ -124,7 +124,7 @@ public class Player : MonoBehaviour
 
             if (Input.GetKey(moveRightKey) && !Input.GetKeyDown(moveLeftKey))
             {
-                transform.position += Vector3.right * maxSpeed;
+                transform.position += Vector3.right * maxSpeed* Time.deltaTime;
                 if (transform.position.x > maxXBound)
                 {
                     Vector3 tmp = transform.position;
@@ -133,8 +133,5 @@ public class Player : MonoBehaviour
                 }
             }
         }
-
-
-        GameManager.instance.timeDebug = currentSpeed;
     }
 }

@@ -44,6 +44,7 @@ public class GameManager : MonoBehaviour
 
     public Text debugTime;
     public float timeDebug = 0f;
+    public List<float> times = new List<float>();
 
     private void Awake()
     {
@@ -64,7 +65,12 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //timeDebug += Time.deltaTime;
+        times.Add(Time.deltaTime);
+        for (int i = times.Count; i-->0;)
+        {
+
+        }
+
         debugTime.text = timeDebug.ToString();
 
         if (!AreEnemiesLeft)

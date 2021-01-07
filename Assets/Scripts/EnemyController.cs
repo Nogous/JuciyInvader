@@ -57,7 +57,7 @@ public class EnemyController : MonoBehaviour
     {
 
         // Moves the enemy
-        enemyHolder.position += Vector3.right * curentSpeed;
+        enemyHolder.position += Vector3.right * curentSpeed * Time.deltaTime;
 
         // For every enemies in the container
         foreach (Transform enemy in enemyHolder)
@@ -153,14 +153,14 @@ public class EnemyController : MonoBehaviour
                     if (GameManager.instance.deathEffects.Count > 1)
                     {
                         GameObject tmp = Instantiate(GameManager.instance.deathEffects[0]);
-                        tmp.transform.position = enemy.transform.position;
+                        tmp.transform.position = enemy.transform.position + Vector3.back;
 
                         if (GameManager.instance.deathEffects.Count > 2)
                         {
-                            if (Random.Range(0, 100) <= GameManager.instance.spawnSecondEffectProbability)
+                            if (Random.Range(1, 100) <= GameManager.instance.spawnSecondEffectProbability)
                             {
                                 tmp = Instantiate(GameManager.instance.deathEffects[Random.Range(1, GameManager.instance.deathEffects.Count)]);
-                                tmp.transform.position = enemy.transform.position;
+                                tmp.transform.position = enemy.transform.position + Vector3.back;
                             }
                         }
                         else
