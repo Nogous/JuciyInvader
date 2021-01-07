@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Rendering;
 
 public class GameManager : MonoBehaviour
 {
@@ -22,7 +23,7 @@ public class GameManager : MonoBehaviour
     public bool enemyFade;
     public bool enemyTurnAround;
     public bool playerInertie;
-
+    public bool vignette;
     public bool enemyDeathEffect;
 
     [Header("LoadScene")]
@@ -32,6 +33,9 @@ public class GameManager : MonoBehaviour
     public List<ParticleSystem> deathEffects;
     [Range(0,100)]
     public float spawnSecondEffectProbability = 50f;
+
+    [Header("Camera")]
+    public GameObject camera;
 
     private void Awake()
     {
@@ -64,6 +68,15 @@ public class GameManager : MonoBehaviour
             {
                 SceneManager.LoadScene(sceneToLoad);
             }
+        }
+
+        if (vignette)
+        {
+            camera.GetComponent<Volume>().enabled = true;
+        }
+        else
+        {
+            camera.GetComponent<Volume>().enabled = false;
         }
     }
 }
