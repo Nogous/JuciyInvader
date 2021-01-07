@@ -38,7 +38,7 @@ public class Bullet : MonoBehaviour
             }
             else
             {
-                EnemyController.instance.DestroyEnemy(collision.gameObject);
+                Destroy(collision.gameObject);
             }
             Instantiate(shockWave, collision.transform.position, collision.transform.rotation);
             Destroy(gameObject);
