@@ -43,7 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7aa646d392187624795e369e94ba5ab8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  azertyControle: 0
+  azertyControle: 1
   isPlayerDead: 0
   AreEnemiesLeft: 1
   controlsEnabled: 1
@@ -53,9 +53,17 @@ MonoBehaviour:
   enemyFade: 1
   enemyTurnAround: 1
   playerInertie: 1
-  vignette: 0
-  enemyDeathEffect: 0
-  sceneToLoad: Camille
-  deathEffects: []
-  spawnSecondEffectProbability: 50
+  vignette: 1
+  enemyDeathEffect: 1
+  BGSound: 1
+  SFX: 1
+  sceneToLoad: Scene_Charles
+  deathEffects:
+  - {fileID: 106374, guid: e7bee66ea7c025941ba18dec946d0cea, type: 3}
+  - {fileID: 113868, guid: 72eec0d451241354eaba5dd6caf318ab, type: 3}
+  - {fileID: 128874, guid: 648a454b0bdfd8c47a5cf48e1f8a3736, type: 3}
+  - {fileID: 174330, guid: b30ef34d8432ad847b1ced1268b4fb57, type: 3}
+  - {fileID: 143440, guid: 411410f9528530540bdec97694c0e4f8, type: 3}
+  - {fileID: 145170, guid: ad967a85cc705da40bd22bd1cf7e6e96, type: 3}
+  spawnSecondEffectProbability: 100
   camera: {fileID: 0}

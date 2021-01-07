@@ -12,6 +12,7 @@ public class EnemyController : MonoBehaviour
     public float inertieTurnAroundMoveDawn = 1f;
     public float oneEnemyLeftSpeed;
     public float fireRate = 0.997f;
+    public float dawnMoveSpeed = .5f;
 
     [Header("Enemies Bounds")]
     public float minXBound;
@@ -41,8 +42,7 @@ public class EnemyController : MonoBehaviour
         //InvokeRepeating("MoveEnemy", 0.1f, 0.3f);
         enemyHolder = GetComponent<Transform>();
 
-        if (!GameManager.instance.enemyTurnAround)
-            curentSpeed = movementSpeed;
+        curentSpeed = movementSpeed;
     }
 
     private void Update()
@@ -67,7 +67,7 @@ public class EnemyController : MonoBehaviour
                 // Set Boundaries and reverse the enemy movement
                 if ((enemy.position.x < minXBound && !isMoveRight) || (enemy.position.x > maxXBound && isMoveRight))
                 {
-                    nextEnemyHolderPosition = enemyHolder.position + Vector3.down * 0.5f;
+                    nextEnemyHolderPosition = enemyHolder.position + Vector3.down * dawnMoveSpeed;
                     TurnAround = true;
                     return;
                 }
