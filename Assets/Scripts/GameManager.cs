@@ -23,8 +23,15 @@ public class GameManager : MonoBehaviour
     public bool enemyTurnAround;
     public bool playerInertie;
 
+    public bool enemyDeathEffect;
+
     [Header("LoadScene")]
     public string sceneToLoad;
+
+    [Header("Enemy Death Effect")]
+    public List<ParticleSystem> deathEffects;
+    [Range(0,100)]
+    public float spawnSecondEffectProbability = 50f;
 
     private void Awake()
     {
@@ -32,12 +39,6 @@ public class GameManager : MonoBehaviour
             instance = this;
         else
             Destroy(gameObject);
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
     }
 
     // Update is called once per frame
