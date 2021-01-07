@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour
     public string sceneToLoad;
 
     [Header("Enemy Death Effect")]
-    public List<ParticleSystem> deathEffects;
+    public List<GameObject> deathEffects;
     [Range(0,100)]
     public float spawnSecondEffectProbability = 50f;
 
