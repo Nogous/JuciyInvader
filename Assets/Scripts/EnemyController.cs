@@ -151,12 +151,16 @@ public class EnemyController : MonoBehaviour
                 {
                     if (GameManager.instance.deathEffects.Count > 1)
                     {
-                        Instantiate(GameManager.instance.deathEffects[0]);
+                        GameObject tmp = Instantiate(GameManager.instance.deathEffects[0]);
+                        tmp.transform.position = enemy.transform.position;
 
                         if (GameManager.instance.deathEffects.Count > 2)
                         {
                             if (Random.Range(0, 100) <= GameManager.instance.spawnSecondEffectProbability)
-                                Instantiate(GameManager.instance.deathEffects[Random.Range(1, GameManager.instance.deathEffects.Count)]);
+                            {
+                                tmp = Instantiate(GameManager.instance.deathEffects[Random.Range(1, GameManager.instance.deathEffects.Count)]);
+                                tmp.transform.position = enemy.transform.position;
+                            }
                         }
                         else
                         {
