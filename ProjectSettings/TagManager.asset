@@ -48,3 +48,6 @@ TagManager:
   - name: ShockWaveLayer
     uniqueID: 369764523
     locked: 0
+  - name: UI Layer
+    uniqueID: 3384908293
+    locked: 0
