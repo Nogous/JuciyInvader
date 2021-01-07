@@ -20,8 +20,13 @@ public class ShockWave : MonoBehaviour
         startTime += Time.deltaTime;
         if (startTime > maxTime)
         {
-            spriteRenderer.material = null;
+            //spriteRenderer.material = null;
             Destroy(gameObject);
         }
+        else
+        {
+            spriteRenderer.material.SetFloat("AnimPosition", startTime / maxTime);
+        }
+
     }
 }

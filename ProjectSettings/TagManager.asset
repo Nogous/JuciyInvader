@@ -14,8 +14,8 @@ TagManager:
   - UI
   - 
   - 
-  - DistortionLayer
-  - 
+  - ShockWaveLayer
+  - DistorsionLayer
   - 
   - 
   - 
@@ -41,4 +41,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: DistorsionLayer
+    uniqueID: 2486734181
+    locked: 0
+  - name: ShockWaveLayer
+    uniqueID: 369764523
     locked: 0
