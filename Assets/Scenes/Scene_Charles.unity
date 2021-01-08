@@ -1592,9 +1592,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64a13cfdd6fc32a4ab818a778282cfcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 1.5
-  inertieTurnAround: 0.1
-  inertieTurnAroundMoveDawn: 0.01
+  movementSpeed: 1
+  inertieTurnAround: 0.8
+  inertieTurnAroundMoveDawn: 0.1
   oneEnemyLeftSpeed: 4
   fireRate: 0.9998
   dawnMoveSpeed: 5
@@ -4258,9 +4258,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6423103431121811908, guid: ae9871e9aa749c944a1807bfb845fdac,
         type: 3}
+      propertyPath: SFX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6423103431121811908, guid: ae9871e9aa749c944a1807bfb845fdac,
+        type: 3}
       propertyPath: camera
       value: 
       objectReference: {fileID: 125157729}
+    - target: {fileID: 6423103431121811908, guid: ae9871e9aa749c944a1807bfb845fdac,
+        type: 3}
+      propertyPath: BGSound
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6423103431121811908, guid: ae9871e9aa749c944a1807bfb845fdac,
         type: 3}
       propertyPath: winText
@@ -4273,8 +4283,18 @@ PrefabInstance:
       objectReference: {fileID: 1301015416}
     - target: {fileID: 6423103431121811908, guid: ae9871e9aa749c944a1807bfb845fdac,
         type: 3}
+      propertyPath: vignette
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6423103431121811908, guid: ae9871e9aa749c944a1807bfb845fdac,
+        type: 3}
       propertyPath: debugTime
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6423103431121811908, guid: ae9871e9aa749c944a1807bfb845fdac,
+        type: 3}
+      propertyPath: enemyFade
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6423103431121811908, guid: ae9871e9aa749c944a1807bfb845fdac,
         type: 3}
@@ -4299,7 +4319,12 @@ PrefabInstance:
     - target: {fileID: 6423103431121811908, guid: ae9871e9aa749c944a1807bfb845fdac,
         type: 3}
       propertyPath: playFireworks
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6423103431121811908, guid: ae9871e9aa749c944a1807bfb845fdac,
+        type: 3}
+      propertyPath: playerInertie
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6423103431121811908, guid: ae9871e9aa749c944a1807bfb845fdac,
         type: 3}
@@ -4308,9 +4333,34 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6423103431121811908, guid: ae9871e9aa749c944a1807bfb845fdac,
         type: 3}
+      propertyPath: enemyTurnAround
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6423103431121811908, guid: ae9871e9aa749c944a1807bfb845fdac,
+        type: 3}
+      propertyPath: shockWaveShader
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6423103431121811908, guid: ae9871e9aa749c944a1807bfb845fdac,
+        type: 3}
       propertyPath: waterDistortion
       value: 
       objectReference: {fileID: 148912344}
+    - target: {fileID: 6423103431121811908, guid: ae9871e9aa749c944a1807bfb845fdac,
+        type: 3}
+      propertyPath: enemyDeathEffect
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6423103431121811908, guid: ae9871e9aa749c944a1807bfb845fdac,
+        type: 3}
+      propertyPath: backgroundParticles
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6423103431121811908, guid: ae9871e9aa749c944a1807bfb845fdac,
+        type: 3}
+      propertyPath: waterDistortionShader
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6423103431121811908, guid: ae9871e9aa749c944a1807bfb845fdac,
         type: 3}
       propertyPath: deathEffects.Array.data[0]
