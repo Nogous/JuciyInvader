@@ -50,10 +50,16 @@ MonoBehaviour:
   winText: {fileID: 0}
   losetext: {fileID: 0}
   restartText: {fileID: 0}
+  bgParticles: {fileID: 0}
+  waterDistortion: {fileID: 0}
+  waterDistortionShader: 1
+  shockWaveShader: 1
   enemyFade: 1
   enemyTurnAround: 1
   playerInertie: 1
   vignette: 1
+  bloom: 1
+  backgroundParticles: 1
   enemyDeathEffect: 1
   BGSound: 1
   SFX: 1
@@ -67,3 +73,4 @@ MonoBehaviour:
   - {fileID: 145170, guid: ad967a85cc705da40bd22bd1cf7e6e96, type: 3}
   spawnSecondEffectProbability: 100
   camera: {fileID: 0}
+  times: []

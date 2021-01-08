@@ -40,7 +40,12 @@ public class Bullet : MonoBehaviour
             {
                 Destroy(collision.gameObject);
             }
-            Instantiate(shockWave, collision.transform.position, collision.transform.rotation);
+
+            if(GameManager.instance.shockWaveShader)
+            {
+                Instantiate(shockWave, collision.transform.position, collision.transform.rotation);
+            }
+
             Destroy(gameObject);
         }
     }

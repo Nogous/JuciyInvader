@@ -19,12 +19,18 @@ public class GameManager : MonoBehaviour
     public GameObject winText;
     public GameObject losetext;
     public GameObject restartText;
+    public GameObject bgParticles;
+    public GameObject waterDistortion;
 
     [Header("Juicy Parameter")]
+    public bool waterDistortionShader;
+    public bool shockWaveShader;
     public bool enemyFade;
     public bool enemyTurnAround;
     public bool playerInertie;
     public bool vignette;
+    public bool bloom;
+    public bool backgroundParticles;
     public bool enemyDeathEffect;
     public bool BGSound;
     public bool SFX;
@@ -42,8 +48,6 @@ public class GameManager : MonoBehaviour
     [Header("Camera")]
     public GameObject camera;
 
-    public Text debugTime;
-    public float timeDebug = 0f;
     public List<float> times = new List<float>();
 
     private void Awake()
@@ -93,6 +97,15 @@ public class GameManager : MonoBehaviour
             }
         }
 
+        if(waterDistortionShader)
+        {
+            waterDistortion.SetActive(true);
+        }
+        else
+        {
+            waterDistortion.SetActive(false);
+        }
+
         if (vignette)
         {
             camera.GetComponent<Volume>().enabled = true;
@@ -101,6 +114,16 @@ public class GameManager : MonoBehaviour
         {
             camera.GetComponent<Volume>().enabled = false;
         }
+
+        if(backgroundParticles)
+        {
+            bgParticles.SetActive(true);
+        }
+        else
+        {
+            bgParticles.SetActive(false);
+        }
+
 
         if (_BGSound != BGSound)
         {
@@ -111,6 +134,56 @@ public class GameManager : MonoBehaviour
         {
             AudioManager.instance.UpdateVolume();
             _SFX = SFX;
+        }
+
+        ActivateFeedbacks();
+    }
+
+    private void ActivateFeedbacks()
+    {
+        if(Input.GetKeyDown(KeyCode.A))
+        {
+            waterDistortionShader = !waterDistortionShader;
+        }
+        else if (Input.GetKeyDown(KeyCode.Z))
+        {
+            shockWaveShader = !shockWaveShader;
+        }
+        else if (Input.GetKeyDown(KeyCode.E))
+        {
+            enemyFade = !enemyFade;
+        }
+        else if (Input.GetKeyDown(KeyCode.R))
+        {
+            enemyTurnAround = !enemyTurnAround;
+        }
+        else if (Input.GetKeyDown(KeyCode.T))
+        {
+            playerInertie = !playerInertie;
+        }
+        else if (Input.GetKeyDown(KeyCode.Y))
+        {
+            vignette = !vignette;
+        }
+        else if (Input.GetKeyDown(KeyCode.U))
+        {
+            bloom = !bloom;
+        }
+        else if (Input.GetKeyDown(KeyCode.I))
+        {
+            backgroundParticles = !backgroundParticles;
+        }
+        else if (Input.GetKeyDown(KeyCode.O))
+        {
+            enemyDeathEffect = !enemyDeathEffect;
+        }
+        else if (Input.GetKeyDown(KeyCode.P))
+        {
+            BGSound = !BGSound;
+        }
+        else if (Input.GetKeyDown(KeyCode.M))
+        {
+            SFX = !SFX;
         }
     }
 }

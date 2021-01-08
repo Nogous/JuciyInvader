@@ -4168,19 +4168,14 @@ PrefabInstance:
       objectReference: {fileID: 1301015416}
     - target: {fileID: 6423103431121811908, guid: ae9871e9aa749c944a1807bfb845fdac,
         type: 3}
-      propertyPath: vignette
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6423103431121811908, guid: ae9871e9aa749c944a1807bfb845fdac,
-        type: 3}
       propertyPath: debugTime
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6423103431121811908, guid: ae9871e9aa749c944a1807bfb845fdac,
         type: 3}
-      propertyPath: enemyFade
-      value: 1
-      objectReference: {fileID: 0}
+      propertyPath: bgParticles
+      value: 
+      objectReference: {fileID: 1085263528}
     - target: {fileID: 6423103431121811908, guid: ae9871e9aa749c944a1807bfb845fdac,
         type: 3}
       propertyPath: restartText
@@ -4198,9 +4193,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6423103431121811908, guid: ae9871e9aa749c944a1807bfb845fdac,
         type: 3}
-      propertyPath: enemyTurnAround
-      value: 1
-      objectReference: {fileID: 0}
+      propertyPath: waterDistortion
+      value: 
+      objectReference: {fileID: 148912344}
     - target: {fileID: 6423103431121811908, guid: ae9871e9aa749c944a1807bfb845fdac,
         type: 3}
       propertyPath: deathEffects.Array.data[0]
