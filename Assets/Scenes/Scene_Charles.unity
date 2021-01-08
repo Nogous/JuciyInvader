@@ -1592,12 +1592,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64a13cfdd6fc32a4ab818a778282cfcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 0.2
-  inertieTurnAround: 0.15
-  inertieTurnAroundMoveDawn: 0.1
-  oneEnemyLeftSpeed: 10
+  movementSpeed: 1.5
+  inertieTurnAround: 0.1
+  inertieTurnAroundMoveDawn: 0.01
+  oneEnemyLeftSpeed: 4
   fireRate: 0.9998
-  dawnMoveSpeed: 0.5
+  dawnMoveSpeed: 5
   minXBound: -7
   maxXBound: 7
   shot: {fileID: 8347113934313053276, guid: 0af2189b744e177438b93a3e91e52e45, type: 3}
@@ -1609,7 +1609,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 993100528}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.96, z: 0}
+  m_LocalPosition: {x: 0, y: 4, z: 0}
   m_LocalScale: {x: 1.4, y: 1.4, z: 1}
   m_Children:
   - {fileID: 84345349}
