@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
     public GameObject restartText;
     public GameObject bgParticles;
     public GameObject waterDistortion;
+    public GameObject fireworks;
 
     [Header("Juicy Parameter")]
     public bool waterDistortionShader;
@@ -29,11 +30,11 @@ public class GameManager : MonoBehaviour
     public bool enemyTurnAround;
     public bool playerInertie;
     public bool vignette;
-    public bool bloom;
     public bool backgroundParticles;
     public bool enemyDeathEffect;
     public bool BGSound;
     public bool SFX;
+    public bool playFireworks;
     private bool _BGSound;
     private bool _SFX;
 
@@ -80,7 +81,12 @@ public class GameManager : MonoBehaviour
             winText.SetActive(true);
             restartText.SetActive(true);
             controlsEnabled = false;
-            if(Input.GetKeyDown(KeyCode.R))
+            fireworks.SetActive(true);
+            if (!playFireworks)
+            {
+                fireworks.SetActive(false);
+            }
+            if (Input.GetKeyDown(KeyCode.R))
             {
                 SceneManager.LoadScene(sceneToLoad);
             }
@@ -141,7 +147,7 @@ public class GameManager : MonoBehaviour
 
     private void ActivateFeedbacks()
     {
-        if(Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKeyDown(KeyCode.A))
         {
             waterDistortionShader = !waterDistortionShader;
         }
@@ -167,23 +173,23 @@ public class GameManager : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.U))
         {
-            bloom = !bloom;
+            backgroundParticles = !backgroundParticles;
         }
         else if (Input.GetKeyDown(KeyCode.I))
         {
-            backgroundParticles = !backgroundParticles;
+            enemyDeathEffect = !enemyDeathEffect;
         }
         else if (Input.GetKeyDown(KeyCode.O))
         {
-            enemyDeathEffect = !enemyDeathEffect;
+            BGSound = !BGSound;
         }
         else if (Input.GetKeyDown(KeyCode.P))
         {
-            BGSound = !BGSound;
+            SFX = !SFX;
         }
         else if (Input.GetKeyDown(KeyCode.M))
         {
-            SFX = !SFX;
+            playFireworks = !playFireworks;
         }
     }
 }
