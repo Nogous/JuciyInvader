@@ -143,7 +143,8 @@ public class Player : MonoBehaviour
         if(collision.CompareTag("Enemy"))
         {
             animator.SetBool("Death", true);
-           //Destroy(gameObject, 2f);
+            GameManager.instance.AreEnemiesLeft = false;
+            //Destroy(gameObject, 2f);
         }
     }
 }
